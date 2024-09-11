@@ -85,7 +85,7 @@ const makecards = () => {
       description: "Zesty orange-flavored candies that are sweet, tangy, and perfect for a citrus kick.",
     }
   ];
-  const content = products.map(e => 
+  const content = products.map(e =>
     `<div id="${e.id} class="product-card">
     <img src="./img/${e.picture}" alt="${e.name}" title="${e.name}">
     <h3>${e.name}</h3>
@@ -96,34 +96,41 @@ const makecards = () => {
   return content;
 }
 const productlist = makecards();
-const renderBoxes = (data) =>{
+const renderBoxes = (data) => {
   const boxes = document.querySelector(".products");
-  boxes.innerHTML=""
-  boxes.innerHTML=data
+  boxes.innerHTML = ""
+  boxes.innerHTML = data
 }
-document.addEventListener("DOMContentLoaded", () => {
-  renderBoxes(productlist);
-});
 
 
 
-const productList = makeboxes(products)
+
 //Input értékek kivétele
 
 const minInput = document.querySelector("#min-price").value;
 const maxInput = document.querySelector("#max-price").value;
-productList =  productList.filter(product => product.price >= minInput && product.price <= maxInput);
 
-if  (minInput > maxInput) {
-  alert("A szűrési érték nem megfelelő!");
-}
+
+
 
 
 //Eseményfigyelő gomb
+const filteredList = []
+
 const filter = () => {
   const filterButton = document.querySelector("#filter-btn");
   filterButton.addEventListener("click", () => {
-  
+
+    if (productList.filter(product => product.price >= minInput && product.price <= maxInput)) {
+      filteredList = [productlist]
+    }
+    else {
+      alert("A szűrési érték nem megfelelő!");
+    }
   }
   )
 }
+document.addEventListener("DOMContentLoaded", () => {
+  renderBoxes(productlist);
+  renderBoxes(filteredList)
+});
