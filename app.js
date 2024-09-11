@@ -95,13 +95,16 @@ const makecards = () => {
   </div>`);
   return content;
 }
-const productlist = makecards();
+
 const renderBoxes = (data) => {
   const boxes = document.querySelector(".products");
   boxes.innerHTML = ""
   boxes.innerHTML = data
 }
-
+document.addEventListener("DOMContentLoaded", () => {
+  const productlist = makecards();
+  renderBoxes(productlist);
+});
 
 
 
@@ -116,21 +119,19 @@ const maxInput = document.querySelector("#max-price").value;
 
 //Eseményfigyelő gomb
 const filteredList = []
-
+const filteredproducts= productlist.filter(product => product.price >= Number(minInput) && product.price <= Number(maxInput))
 const filter = () => {
   const filterButton = document.querySelector("#filter-btn");
   filterButton.addEventListener("click", () => {
 
-    if (productList.filter(product => product.price >= minInput && product.price <= maxInput)) {
-      filteredList = [productlist]
+    if (filteredproducts) {
+      filteredList = [productlist];
+      renderBoxes(filteredList);
     }
     else {
       alert("A szűrési érték nem megfelelő!");
     }
+    return
   }
   )
 }
-document.addEventListener("DOMContentLoaded", () => {
-  renderBoxes(productlist);
-  renderBoxes(filteredList)
-});
