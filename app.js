@@ -115,7 +115,7 @@ const maxInput = document.querySelector("#max-price").value;
 productList =  productList.filter(product => product.price >= minInput && product.price <= maxInput);
 
 if  (minInput > maxInput) {
-
+  alert("A szűrési érték nem megfelelő!");
 }
 
 
