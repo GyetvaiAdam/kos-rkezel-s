@@ -86,3 +86,20 @@ const products = [
 ];
 
 
+//Input értékek kivétele
+const minInput = document.querySelector("#min-price");
+const maxInput = document.querySelector("#max-price");
+
+if  (minInput > maxInput) {
+  
+}
+
+
+//Eseményfigyelő gomb
+const filter = () => {
+  const filterButton = document.querySelector("#filter-btn");
+  filterButton.addEventListener("click", () => {
+  
+  }
+  )
+}
