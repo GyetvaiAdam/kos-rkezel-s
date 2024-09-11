@@ -107,4 +107,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+const productList = makeboxes(products)
+//Input értékek kivétele
 
+const minInput = document.querySelector("#min-price").value;
+const maxInput = document.querySelector("#max-price").value;
+productList =  productList.filter(product => product.price >= minInput && product.price <= maxInput);
+
+if  (minInput > maxInput) {
+
+}
+
+
+//Eseményfigyelő gomb
+const filter = () => {
+  const filterButton = document.querySelector("#filter-btn");
+  filterButton.addEventListener("click", () => {
+  
+  }
+  )
+}
