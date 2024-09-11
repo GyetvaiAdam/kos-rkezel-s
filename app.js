@@ -85,13 +85,15 @@ const products = [
   }
 ];
 
-
+const productList = makeboxes(products)
 //Input értékek kivétele
-const minInput = document.querySelector("#min-price");
-const maxInput = document.querySelector("#max-price");
+
+const minInput = document.querySelector("#min-price").value;
+const maxInput = document.querySelector("#max-price").value;
+productList =  productList.filter(product => product.price >= minInput && product.price <= maxInput);
 
 if  (minInput > maxInput) {
-  
+
 }
 
 
